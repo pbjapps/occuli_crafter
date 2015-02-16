@@ -21,5 +21,9 @@ app.import('bower_components/bootstrap/dist/css/bootstrap.css');
 app.import('bower_components/bootstrap/dist/css/bootstrap.css.map', {
     destDir: 'assets'
 });
+app.import('bower_components/fontawesome/css/font-awesome.css');
+// app.import('bower_components/fontawesome/css/font-awesome.css.map', {
+//     destDir: 'assets'
+// });
 app.import('bower_components/bootstrap/dist/js/bootstrap.js');
 module.exports = app.toTree();

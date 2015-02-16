@@ -1,3 +1,7 @@
+.table td {
+  vertical-align: middle!important;
+}
+
 .rough {
   width: 0;
   height: 0;
@@ -5,6 +9,7 @@
   border-bottom-color: red;
   position: relative;
   top: -25px;
+  display:inline-block;
 }
 .rough:after {
   content: '';
@@ -15,6 +20,7 @@
   height: 0;
   border: 25px solid transparent;
   border-top-color: red;
+  display:inline-block;
   }
 
   .tumbled {
@@ -58,9 +64,10 @@
       border-color: transparent transparent red transparent;
       border-width: 0 12px 12px 12px;
       height: 0;
-      width: 25px;
+      width: 50px;
       position: relative;
       margin: 10px 0 25px 0;
+      display:inline-block;
   }
   .brilliant:after {
       content: "";
@@ -72,6 +79,7 @@
       border-style: solid;
       border-color: red transparent transparent transparent;
       border-width: 35px 25px 0 25px;
+      display:inline-block;
   }
 
   .oculi-sapphire {
@@ -117,10 +125,12 @@
   }
 
   .oculi-diamond {
-    border-bottom-color: #F6F6F6;
+    /*border-bottom-color: #F6F6F6;*/
+    border-bottom-color: #E1FFFF;
   }
   .oculi-diamond:after {
-  border-top-color: #F5F5F5;
+    /*border-top-color: #F5F5F5;*/
+    border-top-color:#D6FFFF ;
   }
 
   .oculi-onyx {
