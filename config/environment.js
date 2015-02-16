@@ -5,7 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'oculi-crafter',
     environment: environment,
     baseURL: '/oculi-crafter',
-    locationType: 'hash,
+    locationType: 'hash',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
