@@ -6,6 +6,7 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.resource('oculis', { path: '/' });
 });
 
 export default Router;
