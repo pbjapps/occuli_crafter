@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import OculiCrafter from '../app';
 
 OculiCrafter.SelectableOculi = Ember.Component.extend({
   // TODO: Disable select if it's a princess stone...
