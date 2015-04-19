@@ -8,9 +8,18 @@ var Oculi = DS.Model.extend({
   body: DS.attr('string'),
   accessory: DS.attr('string'),
 
-  gemcolor: function(){
+  gemcolor: (function(){
     return "oculi-" + this.get('type');
-  }.property('type')
+  }).property('type'),
+
+  equipBonus: (function(type, roughness) {
+    // TODO: build a equipMap JS object such that the following is true:
+    // equipMap['sapphire']['brilliant']['weapon'] = "16%"
+    // equipMap['sapphire']['brilliant']['body'] = "24%"
+    // equipMap['sapphire']['brilliant']['accessory'] = "20%"
+    return "-";
+  }).property(['type', 'roughness'])
+
 });
 
 Oculi.reopenClass({

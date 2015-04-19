@@ -5,8 +5,7 @@ var Router = Ember.Router.extend({
   location: config.locationType
 });
 
-Router.map(function() {
+export default Router.map(function() {
   this.resource('oculis', { path: '/' });
+  this.resource('outdatedOculis', { path: 'outdated' });
 });
-
-export default Router;
