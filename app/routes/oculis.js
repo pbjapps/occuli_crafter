@@ -24,6 +24,16 @@ export default Ember.Route.extend({
     },
     deselectOculi: function(slot){
       this.controllerFor('oculis').get('crafter').set(slot, null);
+    },
+    craftOculi: function() {
+      var result = this.store.createRecord('oculi', {
+        type: 'diamond',
+        roughness: 'brilliant',
+        weapon: 'Increase speed by 1/2/4/6.',
+        body: 'Earn an additional 5%/10%/15%/20% XP from each battle.',
+        accessory: 'Increase casting speed by 3%/6%/9%/12%.'
+      });
+      this.controllerFor('oculis').get('crafter').set('result', result);
     }
   }
 });
