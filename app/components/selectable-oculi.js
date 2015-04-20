@@ -15,11 +15,15 @@ OculiCrafter.SelectableOculi = Ember.Component.extend({
       this.sendAction('action', this.get('slot'));
     }
   },
-  craftOculi: (function(){
+  craftOculi: function(){
+    console.log("crafting " + this.get('crafter.slot1.type') + this.get('crafter.slot2.type') + this.get('crafter.slot3.type') );
     if(this.get('action') === "craftOculi"){
       this.sendAction('action');
     }
-  }).on('init')
+  },
+  slotChanged: (function() {
+    Ember.run.once(this, 'craftOculi');
+  }).observes('crafter.slot1', 'crafter.slot2', 'crafter.slot3')
 });
 
 export default OculiCrafter.SelectableOculi;
