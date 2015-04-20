@@ -10,8 +10,6 @@ export default Ember.Route.extend({
   },
   actions: {
     selectOculi: function(oculi) {
-      // console.log("Clicked: " + oculi.get('type') + "-" + oculi.get('roughness') );
-      Ember.$(".crafter-list").append("<p>"+ oculi.get('type') + "-" + oculi.get('roughness') +"</p>");
       if(!this.controllerFor('oculis').get('crafter').get('slot1')){
         this.controllerFor('oculis').get('crafter').set('slot1', oculi);
       }
@@ -28,16 +26,17 @@ export default Ember.Route.extend({
     craftOculi: function() {
       var formula = [];
       var noneCounter = 0;
-      var crafterTree = this.controllerFor('oculis').get('crafter').constructor.crafterTree;
+      var crafter = this.controllerFor('oculis').get('crafter');
+      var crafterTree = crafter.constructor.crafterTree;
 
-      if(this.controllerFor('oculis').get('crafter').get('slot1')){
-        formula.push(this.controllerFor('oculis').get('crafter').get('slot1.type') + "_" + this.controllerFor('oculis').get('crafter').get('slot1.roughness'));
+      if(crafter.get('slot1')){
+        formula.push(crafter.get('slot1.type') + "_" + crafter.get('slot1.roughness'));
       } else{ noneCounter++; }
-      if(this.controllerFor('oculis').get('crafter').get('slot2')){
-        formula.push(this.controllerFor('oculis').get('crafter').get('slot2.type') + "_" + this.controllerFor('oculis').get('crafter').get('slot2.roughness'));
+      if(crafter.get('slot2')){
+        formula.push(crafter.get('slot2.type') + "_" + crafter.get('slot2.roughness'));
       } else{ noneCounter++; }
-      if(this.controllerFor('oculis').get('crafter').get('slot3')){
-        formula.push(this.controllerFor('oculis').get('crafter').get('slot3.type') + "_" + this.controllerFor('oculis').get('crafter').get('slot3.roughness'));
+      if(crafter.get('slot3')){
+        formula.push(crafter.get('slot3.type') + "_" + crafter.get('slot3.roughness'));
       } else{ noneCounter++; }
 
       for(var i = 0; i < noneCounter; i++){
@@ -55,19 +54,19 @@ export default Ember.Route.extend({
             if(oculiType === "princess"){
               oculiType = "princess stone";
             }
-            var result = this.store.createRecord('oculi', {
-              type: oculiType,
-              roughness: oculiInfo.split("_")[2],
-              weapon: 'Increase speed by 1/2/4/6.',
-              body: 'Earn an additional 5%/10%/15%/20% XP from each battle.',
-              accessory: 'Increase casting speed by 3%/6%/9%/12%.'
+
+            this.store.find('oculi', {
+                type: oculiType,
+                roughness: oculiInfo.split("_")[2]
+            }).then(function(craftedOculi) {
+              crafter.set('result', craftedOculi.get('content')[0]);
             });
-            this.controllerFor('oculis').get('crafter').set('result', result);
+
             return true;
           }
         }
       }
-      this.controllerFor('oculis').get('crafter').set('result', null);
+      crafter.set('result', null);
     }
   }
 });

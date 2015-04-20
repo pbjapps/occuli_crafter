@@ -6,8 +6,6 @@ OculiCrafter.SelectableOculi = Ember.Component.extend({
   oculi: null,
   tagName: "span",
   click: function() {
-    // console.log("Clicked: " + this.get('oculi.type') + "-" + this.get('oculi.roughness') );
-    // console.log("Clicked: " + this.get('action') + " " + this.get('slot'));
     if(this.get('action') === "selectOculi"){
       this.sendAction('action', this.get('oculi'));
     }
@@ -16,7 +14,6 @@ OculiCrafter.SelectableOculi = Ember.Component.extend({
     }
   },
   craftOculi: function(){
-    console.log("crafting " + this.get('crafter.slot1.type') + this.get('crafter.slot2.type') + this.get('crafter.slot3.type') );
     if(this.get('action') === "craftOculi"){
       this.sendAction('action');
     }

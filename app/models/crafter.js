@@ -7,7 +7,6 @@ var Crafter = DS.Model.extend({
   result: DS.belongsTo('oculi'),
 
   isValidFormula: function(){
-    console.log("type : " + this.get('slot1.type') + this.get('slot2.type') + this.get('slot3.type'));
     var crafterTree = this.constructor.crafterTree;
     var formula = [];
     var noneCounter = 0;
@@ -26,7 +25,6 @@ var Crafter = DS.Model.extend({
     for(var i = 0; i < noneCounter; i++){
       formula.push("none");
     }
-    console.log("formula: " + formula);
 
     ct1 = crafterTree[formula[0]];
     if(ct1){
@@ -39,38 +37,93 @@ var Crafter = DS.Model.extend({
       }
     }
     return false;
-    // if ($.inArray( "sapphire", formula) !== -1 && $.inArray( "ruby", formula) !== -1  && $.inArray( "emerald", formula) !== -1) {
-    //   return true;
-    // } else {
-    //   return false;
-    // }
   }.property('slot1', 'slot2', 'slot3')
-
-  // craftOculi: function(){
-  //   return Oculi
-  // }.property('slot1', 'slot2', 'slot3')
 
 });
 
 Crafter.reopenClass({
-  crafterTree: {"sapphire_brilliant": {"emerald_brilliant": {"none": "$_tourmaline_brilliant", "ruby_brilliant": "$_diamond_brilliant"},
-                                        "ruby_brilliant": {"none": "$_amethyst_brilliant", "emerald_brilliant": "$_diamond_brilliant"}},
-                "ruby_brilliant": {"sapphire_brilliant": {"none": "$_amethyst_brilliant", "emerald_brilliant": "$_diamond_brilliant"},
-                                    "emerald_brilliant": {"none": "$_citrine_brilliant", "sapphire_brilliant": "$_diamond_brilliant"}},
-                "emerald_brilliant": {"ruby_brilliant": {"none": "$_citrine_brilliant", "sapphire_brilliant": "$_diamond_brilliant"},
-                                        "sapphire_brilliant": {"none": "$_tourmaline_brilliant", "ruby_brilliant": "$_diamond_brilliant"}},
-                "amethyst_brilliant": {"tourmaline_brilliant": {"citrine_brilliant": "$_onyx_brilliant"},
-                                        "citrine_brilliant": {"tourmaline_brilliant": "$_onyx_brilliant"}},
-                "tourmaline_brilliant": {"amethyst_brilliant": {"citrine_brilliant": "$_onyx_brilliant"},
-                                          "citrine_brilliant": {"amethyst_brilliant": "$_onyx_brilliant"}},
-                "citrine_brilliant": {"tourmaline_brilliant": {"amethyst_brilliant": "$_onyx_brilliant"},
-                                      "amethyst_brilliant": {"tourmaline_brilliant": "$_onyx_brilliant"}},
-                "diamond_brilliant": {"onyx_brilliant": {"none": "$_spinel_brilliant", "spinel_brilliant": "$_princess_brilliant"},
-                                      "spinel_brilliant": {"onyx_brilliant": "$_princess_brilliant"}},
-                "onyx_brilliant": {"diamond_brilliant": {"none": "$_spinel_brilliant", "spinel_brilliant": "$_princess_brilliant"},
-                                    "spinel_brilliant": {"diamond_brilliant": "$_princess_brilliant"}},
-                "spinel_brilliant": {"diamond_brilliant": {"onyx_brilliant": "$_princess_brilliant"},
-                                      "onyx_brilliant": {"diamond_brilliant": "$_princess_brilliant"}}
-              }
+  crafterTree: {
+    "sapphire_brilliant": {
+      "emerald_brilliant": {
+        "none": "$_tourmaline_brilliant",
+        "ruby_brilliant": "$_diamond_brilliant"
+      },
+      "ruby_brilliant": {
+        "none": "$_amethyst_brilliant",
+        "emerald_brilliant": "$_diamond_brilliant"
+      }
+    },
+    "ruby_brilliant": {
+      "sapphire_brilliant": {
+        "none": "$_amethyst_brilliant",
+        "emerald_brilliant": "$_diamond_brilliant"
+      },
+      "emerald_brilliant": {
+        "none": "$_citrine_brilliant",
+        "sapphire_brilliant": "$_diamond_brilliant"
+      }
+    },
+    "emerald_brilliant": {
+      "ruby_brilliant": {
+        "none": "$_citrine_brilliant",
+        "sapphire_brilliant": "$_diamond_brilliant"
+      },
+      "sapphire_brilliant": {
+        "none": "$_tourmaline_brilliant",
+        "ruby_brilliant": "$_diamond_brilliant"
+      }
+    },
+    "amethyst_brilliant": {
+      "tourmaline_brilliant": {
+        "citrine_brilliant": "$_onyx_brilliant"
+      },
+      "citrine_brilliant": {
+        "tourmaline_brilliant": "$_onyx_brilliant"
+      }
+    },
+    "tourmaline_brilliant": {
+      "amethyst_brilliant": {
+        "citrine_brilliant": "$_onyx_brilliant"
+      },
+      "citrine_brilliant": {
+        "amethyst_brilliant": "$_onyx_brilliant"
+      }
+    },
+    "citrine_brilliant": {
+      "tourmaline_brilliant": {
+        "amethyst_brilliant": "$_onyx_brilliant"
+      },
+      "amethyst_brilliant": {
+        "tourmaline_brilliant": "$_onyx_brilliant"
+      }
+    },
+    "diamond_brilliant": {
+      "onyx_brilliant": {
+        "none": "$_spinel_brilliant",
+        "spinel_brilliant": "$_princess_brilliant"
+      },
+      "spinel_brilliant": {
+        "onyx_brilliant": "$_princess_brilliant"
+      }
+    },
+    "onyx_brilliant": {
+      "diamond_brilliant": {
+        "none": "$_spinel_brilliant",
+        "spinel_brilliant": "$_princess_brilliant"
+      },
+      "spinel_brilliant": {
+        "diamond_brilliant": "$_princess_brilliant"
+      }
+    },
+    "spinel_brilliant": {
+      "diamond_brilliant": {
+        "onyx_brilliant": "$_princess_brilliant"
+      },
+      "onyx_brilliant": {
+        "diamond_brilliant": "$_princess_brilliant"
+      }
+    }
+  }
 });
+
 export default Crafter;
