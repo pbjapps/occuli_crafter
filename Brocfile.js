@@ -21,23 +21,23 @@ app.import('bower_components/bootstrap/dist/css/bootstrap.css');
 app.import('bower_components/bootstrap/dist/css/bootstrap.css.map', {
     destDir: 'assets'
 });
-app.import('bower_components/fontawesome/css/font-awesome.css');
-app.import('bower_components/fontawesome/css/font-awesome.css.map', {
+app.import('bower_components/font-awesome/css/font-awesome.css');
+app.import('bower_components/font-awesome/css/font-awesome.css.map', {
     destDir: 'assets'
 });
-app.import('bower_components/fontawesome/fonts/fontawesome-webfont.eot', {
+app.import('bower_components/font-awesome/fonts/fontawesome-webfont.eot', {
     destDir: 'fonts'
 });
-app.import('bower_components/fontawesome/fonts/fontawesome-webfont.svg', {
+app.import('bower_components/font-awesome/fonts/fontawesome-webfont.svg', {
     destDir: 'fonts'
 });
-app.import('bower_components/fontawesome/fonts/fontawesome-webfont.ttf', {
+app.import('bower_components/font-awesome/fonts/fontawesome-webfont.ttf', {
     destDir: 'fonts'
 });
-app.import('bower_components/fontawesome/fonts/fontawesome-webfont.woff', {
+app.import('bower_components/font-awesome/fonts/fontawesome-webfont.woff', {
     destDir: 'fonts'
 });
-app.import('bower_components/fontawesome/fonts/fontawesome-webfont.woff2', {
+app.import('bower_components/font-awesome/fonts/fontawesome-webfont.woff2', {
     destDir: 'fonts'
 });
 app.import('bower_components/bootstrap/dist/js/bootstrap.js');
