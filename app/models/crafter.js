@@ -12,7 +12,7 @@ var Crafter = DS.Model.extend({
   //     return false
   //   }
   // }.property('slot1', 'slot2', 'slot3')
-  //
+  
   // craftOculi: function(){
   //   return Oculi
   // }.property('slot1', 'slot2', 'slot3')
